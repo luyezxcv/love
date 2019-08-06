@@ -49,7 +49,7 @@ document.oncontextmenu=stops; */
 
     <body>
 
-			<audio autoplay="autopaly" src="http://www.ytmp3.cn/down/58400.mp3" >
+			<audio id="vd" autoplay="autopaly" src="http://www.ytmp3.cn/down/58400.mp3" >
 
 
 			</audio>  
@@ -127,6 +127,7 @@ document.oncontextmenu=stops; */
     <script>
 
     (function(){
+        
 
         var canvas = $('#canvas');
 
@@ -250,6 +251,13 @@ document.oncontextmenu=stops; */
 
             }
             document.getElementById('main').style = 'transform: translate(0, -50%);position: absolute;top: 50%;'
+            var music = document.getElementById("vd");//获取ID  
+                console.log(music);
+                console.log(music.paused);
+            if (music.paused) { //判读是否播放  
+                music.paused=false;
+                music.play(); //没有就播放 
+            	}        
         }).mousemove(function(e){
 
             var offset = canvas.offset(), x, y;
